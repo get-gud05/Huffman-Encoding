@@ -6,7 +6,18 @@ function HuffmanEncoder() {
   const [encoded, setEncoded] = useState("");
 
   const handleEncode = async () => {
-    setEncoded("Encoded output will appear here (once backend is connected)");
+    try {
+      const response = await fetch("http://localhost:5000/encode", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ input }),
+      });
+      const data = await response.json();
+      setEncoded(data.encoded);
+    } catch (err) {
+      console.error(err);
+      setEncoded("Error encoding string.");
+    }
   };
 
   return (

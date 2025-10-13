@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Bungee+Outline&family=Caprasimo&family=Fjalla+One&family=Londrina+Outline&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Sevillana&display=swap');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #393a3c !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  background-color: black;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.brandicon {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.brandname {
+  font-family: "Caprasimo", serif;
+  font-weight: 400;
+  font-size:30px;
+  font-style: normal;
+  color:white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Headingone {
+  color : rgb(126, 120, 120);
+}
+
+.Subheading {
+  color : rgb(217, 215, 215);
+}
+
+textarea {
+  resize: none;
+}
+
+.encbtn {
+  background-color: #101011 !important;
+  color: white !important;    
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.encbtn:hover {
+  transform: scale(1.05);
+}
+
+.container {
+  max-width: 600px;
+}
+
+.card-text {
+  word-break: break-word;
+}
+
+.card {
+  margin-top: 15px;
 }

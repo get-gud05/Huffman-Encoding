@@ -13,6 +13,7 @@ html, body {
 
 .brandicon {
   color: white;
+  transition : transform;
 }
 
 .brandname {
@@ -21,6 +22,15 @@ html, body {
   font-size:30px;
   font-style: normal;
   color:white;
+  display: inline-block;
+}
+
+.brandname:hover {
+  color: red;
+}
+
+.brandicon:hover {
+  scale : 1.2;
 }
 
 .Headingone {
@@ -44,6 +54,7 @@ textarea {
 
 .encbtn:hover {
   transform: scale(1.05);
+  text-decoration: underline;
 }
 
 .container {

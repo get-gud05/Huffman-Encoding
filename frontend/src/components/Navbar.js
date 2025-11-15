@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinimize } from '@fortawesome/free-solid-svg-icons';
-import '../App.css';
+import '../index.css';
 function Navbar() {
   return (
     <nav className="navbar ">

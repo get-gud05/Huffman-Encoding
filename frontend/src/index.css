@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Bungee+Outline&family=Caprasimo&family=Fjalla+One&family=Londrina+Outline&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Sevillana&display=swap');
 
 html, body {

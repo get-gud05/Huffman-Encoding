@@ -3,6 +3,8 @@ import React, { useState } from "react";
 export default function HuffmanEncoder() {
   const [input, setInput] = useState("");
   const [encoded, setEncoded] = useState("");
+  const [originalSize, setOriginalSize] = useState(0);
+  const [encodedSize, setEncodedSize] = useState(0);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -11,6 +13,8 @@ export default function HuffmanEncoder() {
     setLoading(true);
     setError("");
     setEncoded("");
+    setOriginalSize(0);
+    setEncodedSize(0);
 
     try {
       const response = await fetch("http://localhost:5000/encode", {
@@ -20,6 +24,8 @@ export default function HuffmanEncoder() {
       });
       const data = await response.json();
       setEncoded(data.encoded ?? "No data received");
+      setOriginalSize(data.originalSize ?? 0);
+      setEncodedSize(data.encodedSize ?? 0);
     } catch (err) {
       console.error(err);
       setError("Error encoding string.");
@@ -47,7 +53,7 @@ export default function HuffmanEncoder() {
           {loading ? "Encoding..." : "Encode"}
         </button>
         <button
-          onClick={() => { setInput(""); setEncoded(""); setError(""); }}
+          onClick={() => { setInput(""); setEncoded(""); setOriginalSize(0); setEncodedSize(0); setError(""); }}
           className="px-4 py-2 border border-gray-700 rounded-xl text-white hover:bg-gray-700 transition-colors"
         >
           Reset
@@ -57,9 +63,15 @@ export default function HuffmanEncoder() {
       {error && <div className="text-red-400 text-sm">{error}</div>}
 
       {encoded && (
-        <div className="card-glass mt-4">
+        <div className="card-glass mt-4 p-4">
           <h5 className="text-white font-semibold mb-2">Encoded String:</h5>
           <pre className="whitespace-pre-wrap break-words text-gray-200">{encoded}</pre>
+
+          <div className="mt-3 text-gray-300">
+            <p>Original Size: <span className="text-white">{originalSize} bits</span></p>
+            <p>Encoded Size: <span className="text-white">{encodedSize} bits</span></p>
+            <p>Compression Ratio: <span className="text-white">{((encodedSize/originalSize)*100).toFixed(2)}%</span></p>
+          </div>
         </div>
       )}
     </div>

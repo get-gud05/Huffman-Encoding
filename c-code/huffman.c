@@ -136,13 +136,6 @@ int calcFreq(char str[], char data[], int freq[]) {
     return size;
 }
 
-void encodeString(char str[], char codes[MAX_CHAR][MAX_TREE_HT]) {
-    int n = strlen(str);
-    for (int i=0; i<n; i++)
-        printf("%s", codes[(unsigned char)str[i]]);
-    printf("\n");
-}
-
 int main(int argc, char* argv[]) {
     if (argc < 2) {
         printf("Error: No input string\n");
@@ -159,6 +152,19 @@ int main(int argc, char* argv[]) {
     int arr[MAX_TREE_HT];
     storeCodes(root, arr, 0, codes);
 
-    encodeString(input, codes);
+    // Print encoded string
+    int n = strlen(input);
+    for (int i=0; i<n; i++)
+        printf("%s", codes[(unsigned char)input[i]]);
+
+    // Print sizes
+    int originalBits = n * 8;
+    int encodedBits = 0;
+    for (int i=0; i<n; i++)
+        encodedBits += strlen(codes[(unsigned char)input[i]]);
+    
+    printf("__STATS__\nOriginal:%d\nEncoded:%d\n", originalBits, encodedBits);
+
+
     return 0;
 }

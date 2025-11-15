@@ -1,73 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=Bungee+Outline&family=Caprasimo&family=Fjalla+One&family=Londrina+Outline&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Sevillana&display=swap');
 
-html, body {
-  height: 100%;
-  margin: 0;
-  background-color: #393a3c !important;
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+
+body {
+  font-family: 'Caprasimo', sans-serif;
+  background-color: #121212;
 }
 
-.navbar {
-  background-color: black;
-
+/* Glassmorphic card */
+.card-glass {
+  @apply bg-gray-800/60 border border-gray-700 backdrop-blur-md rounded-xl p-6 shadow-lg;
 }
 
-.brandicon {
-  color: white;
-  transition : transform;
+/* Floating animation for icons */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
-.brandname {
-  font-family: "Caprasimo", serif;
-  font-weight: 400;
-  font-size:30px;
-  font-style: normal;
-  color:white;
-  display: inline-block;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
-.brandname:hover {
-  color: red;
-}
-
-.brandicon:hover {
-  scale : 1.2;
-}
-
-.Headingone {
-  color : rgb(126, 120, 120);
-}
-
-.Subheading {
-  color : rgb(217, 215, 215);
-}
-
-textarea {
-  resize: none;
-}
-
-.encbtn {
-  background-color: #101011 !important;
-  color: white !important;    
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.encbtn:hover {
-  transform: scale(1.05);
-  text-decoration: underline;
-}
-
-.container {
-  max-width: 600px;
-}
-
-.card-text {
-  word-break: break-word;
-}
-
-.card {
-  margin-top: 15px;
+/* Optional text glow for headings */
+.text-glow {
+  text-shadow: 0 0 6px rgba(255,255,255,0.1);
 }
